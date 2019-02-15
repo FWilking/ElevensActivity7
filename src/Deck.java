@@ -33,7 +33,11 @@ public class Deck {
      * @param cards
      */
     public Deck(String[] ranks, String[] suits, int[] values, List<Card> cards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        for(int i = 0; i < ranks.length; i++){
+            for(String suit : suits){
+                cards.add(new Card(ranks[i], suit, values[i]));
+            }
+        }
         this.cards = cards;
     }
 
@@ -43,7 +47,7 @@ public class Deck {
      * @return true if this deck is empty, false otherwise.
      */
     public boolean isEmpty() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        return size == 52;
     }
 
     /**
@@ -68,7 +72,13 @@ public class Deck {
      *         previously dealt.
      */
     public Card deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if(!isEmpty()){
+		    int i = (int) (Math.random() * cards.size());
+		    Card card = cards.get(i);
+		    cards.remove(i);
+		    return card;
+        }
+        return null;
     }
 
     /**
