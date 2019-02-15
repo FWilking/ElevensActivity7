@@ -2,7 +2,6 @@
  * Created by Teacher on 1/7/2019.
  */
 import java.util.List;
-import java.util.ArrayList;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -31,9 +30,11 @@ public class Deck {
      * @param ranks is an array containing all of the card ranks.
      * @param suits is an array containing all of the card suits.
      * @param values is an array containing all of the card point values.
+     * @param cards
      */
-    public Deck(String[] ranks, String[] suits, int[] values) {
+    public Deck(String[] ranks, String[] suits, int[] values, List<Card> cards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        this.cards = cards;
     }
 
 
@@ -50,7 +51,7 @@ public class Deck {
      * @return the number of undealt cards in this deck.
      */
     public int size() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return size;
     }
 
     /**
