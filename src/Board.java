@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElevensBoard {
+public class Board {
     private final Card[] dealtCards;
     private final Deck deck;
 
-    public ElevensBoard(int size, String[] ranks, String[] suits, int[] points){
+    public Board(int size, String[] ranks, String[] suits, int[] points){
         this.dealtCards = new Card[size];
         this.deck = new Deck(ranks, suits, points);
         dealCards();
