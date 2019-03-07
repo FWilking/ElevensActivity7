@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Board {
+public abstract class Board {
     private final Card[] dealtCards;
     private final Deck deck;
 
@@ -11,10 +11,47 @@ public class Board {
         dealCards();
     }
 
-    public void dealCards(){
-        for(int i = 0; i < dealtCards.length; i++){
-            dealtCards[i] =  deck.deal();
+    public void dealCards() {
+        for (int i = 0; i < dealtCards.length; i++) {
+            dealtCards[i] = deck.deal();
         }
+    }
+
+    public int size() {
+        return dealtCards.length;
+    }
+
+    public void newGame() {
+        deck.shuffle();
+        replaceCards();
+    }
+
+    public void deal(int k) {
+        dealtCards[k] = deck.deal();
+    }
+
+    public Card cardAt(int k) {
+        return dealtCards[k];
+    }
+
+    public int deckSize() {
+        return deck.size();
+    }
+
+    public void replaceSelectedCards(List<Integer> selectedCards) {
+        for (Integer num : selectedCards) {
+            deal(num.intValue());
+        }
+    }
+
+    public List<Integer> cardIndexes() {
+        List<Integer> selected = new ArrayList<Integer>();
+        for (int k = 0; k < dealtCards.length; k++) {
+            if (dealtCards[k] != null) {
+                selected.add(new Integer(k));
+            }
+        }
+        return selected;
     }
 
     public String toString() {
@@ -40,6 +77,9 @@ public class Board {
         }
         return false;
     }
+
+    public abstract boolean isLegal(List<Integer> selectedCards);
+    public abstract boolean anotherPlayIsPossible();
 
     public List<Integer> empties(){
         List<Integer> selected = new ArrayList<Integer>();
