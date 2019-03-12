@@ -8,6 +8,7 @@ public abstract class Board {
     public Board(int size, String[] ranks, String[] suits, int[] points){
         this.dealtCards = new Card[size];
         this.deck = new Deck(ranks, suits, points);
+        this.deck.shuffle();
         dealCards();
     }
 
