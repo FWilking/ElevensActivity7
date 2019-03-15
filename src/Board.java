@@ -16,6 +16,7 @@ public abstract class Board {
         for (int i = 0; i < dealtCards.length; i++) {
             dealtCards[i] = deck.deal();
         }
+        deck.setSize(52);
     }
 
     public int size() {
@@ -24,7 +25,7 @@ public abstract class Board {
 
     public void newGame() {
         deck.shuffle();
-        replaceCards();
+        dealCards();
     }
 
     public void deal(int k) {
@@ -90,10 +91,10 @@ public abstract class Board {
         return selected;
     }
 
-    public void replaceCards(){
-        List<Integer> selected = empties();
-        for (Integer num : selected){
-            dealtCards[num.intValue()] = deck.deal();
-        }
-    }
+//    public void replaceCards(){
+//        List<Integer> selected = empties();
+//        for (Integer num : selected){
+//            dealtCards[num.intValue()] = deck.deal();
+//        }
+//    }
 }

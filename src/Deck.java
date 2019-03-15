@@ -61,6 +61,10 @@ public class Deck {
 		return size;
     }
 
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     /**
      * Randomly permute the given collection of cards
      * and reset the size to represent the entire deck.
